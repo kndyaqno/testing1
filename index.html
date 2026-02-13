@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background: #ffe4e8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 50px 35px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            border: 3px solid #ffb3c1;
+        }
+
+        .hearts {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+        }
+
+        h1 {
+            color: #ff1744;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        button {
+            padding: 12px 35px;
+            font-size: 1.1em;
+            border: 2px solid;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: bold;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+        }
+
+        .yes-btn {
+            background: #ff6b9d;
+            color: white;
+            border-color: #ff6b9d;
+        }
+
+        .yes-btn:hover {
+            background: #ff4081;
+            transform: scale(1.05);
+        }
+
+        .no-btn {
+            background: #f5f5f5;
+            color: #666;
+            border-color: #ccc;
+            position: relative;
+        }
+
+        .emoji {
+            font-size: 5em;
+            margin: 30px 0;
+        }
+
+        .letter {
+            text-align: left;
+            line-height: 1.8;
+            color: #333;
+            font-size: 1.1em;
+            margin: 30px 0;
+        }
+
+        .letter p {
+            margin-bottom: 20px;
+        }
+
+        .continue-btn {
+            background: #7b68ee;
+            color: white;
+            margin-top: 25px;
+            border-color: #7b68ee;
+        }
+
+        .continue-btn:hover {
+            background: #6a5acd;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .image-container {
+            margin: 30px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .final-message {
+            background: #fff9e6;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1em;
+            line-height: 1.7;
+            color: #333;
+            border: 2px solid #ffd700;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Screen 1: The Question -->
+    <div class="container" id="screen1">
+        <div class="hearts">💕💖💕</div>
+        <h1>CAN YOU BE MY VALENTINE?</h1>
+        <div class="emoji">🥺</div>
+        <div class="button-container">
+            <button class="yes-btn" onclick="showApology()">YES</button>
+            <button class="no-btn" id="noBtn" onmouseover="moveButton()">NO</button>
+        </div>
+    </div>
+
+    <!-- Screen 2: Apology -->
+    <div class="container hidden" id="screen2">
+        <div class="hearts">💝</div>
+        <h1 style="font-size: 1.8em; color: #9c27b0;">I'm sorry...</h1>
+        <div class="letter">
+            <p>I'm sorry, I know you are mad and tired sakin but I want you to know I really love you and I don't have plans on leaving you. I'm sorry if I'm burned out right now, I really do.</p>
+        </div>
+        <button class="continue-btn" onclick="showLetter()">Continue</button>
+    </div>
+
+    <!-- Screen 3: Full Letter -->
+    <div class="container hidden" id="screen3">
+        <div class="hearts">💌</div>
+        <h1 style="font-size: 1.8em; color: #ff1744;">A Letter for You</h1>
+        <div class="letter">
+            <p>Hi, I know I'm not a good boyfriend, not perfect. I always made you mad, made you sad, but always know I really love you, I really do, and don't want to leave you.</p>
+            
+            <p>So now this Valentine's, I'm supposed to give maximum effort but shit happened. Last week I've been looking for flowers while talking to my friends about what flower I should get and I inquired if they accept my card and they didn't reply until now.</p>
+            
+            <p>So sabado I asked my friends if they could deliver it sa house nyo since kaya naman nila idrive but we got into an argument about me. They don't hate you, they hate me, so no worries, it's another story na. So I got stressed so bad kasi I feel like such a loser boyfriend not giving you flowers.</p>
+            
+            <p>And yes we don't know your house but I know your location so we can base dun. We were using Google Maps last week so it will be a surprise sana but yaa little disagreement destroyed it.</p>
+            
+            <p>So I'm here saying na I'm sorry if I couldn't get you flowers even though I want to. I'm sorry if my effort is a little dull, but I hope you would still appreciate this thing I would do sayo.</p>
+            
+            <p>Yes we are LDR but we are playing Heartopia, and I want you to open the game and dress up. We will have an online date, kasi yun lang kaya kong gawin. I'll also give you something in-game :)) to at least compensate me being a loser boyfriend. I'll still make an effort not IRL, but in-game :))</p>
+            
+            <p style="font-weight: bold; color: #ff1744; font-size: 1.2em;">I love you and I'll see you in-game po 💕</p>
+        </div>
+        <button class="continue-btn" onclick="showFinal()">Continue</button>
+    </div>
+
+    <!-- Screen 4: Final Message with Image -->
+    <div class="container hidden" id="screen4">
+        <div class="hearts">💖💗💖</div>
+        <div class="image-container">
+            <img src="Wuvwuv.png" alt="For You" onerror="this.style.display='none'; document.getElementById('imgError').style.display='block';">
+            <div id="imgError" style="display:none; padding: 20px; background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; margin: 20px 0;">
+            </div>
+        </div>
+        <div class="final-message">
+            <p><strong>I KNOW YOU HATE ME RIGHT NOW, I KNOW GALIT NA GALIT KA SAKIN AND YOU FELT VERY HEAVY ATM,</strong> but know this na kahit galit ka sakin, kahit awayin mo ako, murahin mo ako, I won't get tired of YOU. I'll always love and adore you my dear, so yaaa :DD</p>
+        </div>
+        <div class="emoji">❤️</div>
+    </div>
+
+    <script>
+        let noClickCount = 0;
+
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const container = document.querySelector('.button-container');
+            
+            // Calculate random position
+            const maxX = container.offsetWidth - noBtn.offsetWidth - 40;
+            const maxY = container.offsetHeight - noBtn.offsetHeight;
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+            
+            // Show sad emoji after a few attempts
+            if (noClickCount < 3) {
+                noClickCount++;
+                if (noClickCount === 3) {
+                    alert('😢');
+                }
+            }
+        }
+
+        function showApology() {
+            document.getElementById('screen1').classList.add('hidden');
+            document.getElementById('screen2').classList.remove('hidden');
+        }
+
+        function showLetter() {
+            document.getElementById('screen2').classList.add('hidden');
+            document.getElementById('screen3').classList.remove('hidden');
+        }
+
+        function showFinal() {
+            document.getElementById('screen3').classList.add('hidden');
+            document.getElementById('screen4').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
